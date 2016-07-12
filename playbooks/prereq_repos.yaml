@@ -5,7 +5,7 @@
   tasks:
   - name: Query repos
     shell: subscription-manager repos --list-enabled | grep "rhel-7-server-rpms\|rhel-7-server-extras-rpms\|rhel-7-server-optional-rpms\|rhel-7-server-ose-3.2-rpms" | wc -l
-    reguster: query_repos_result
+    register: query_repos_result
   - name: Query total repos
     shell: subscription-manager repos --list-enabled | grep "Repo ID:" | wc -l
     register: query_total_repos_result
