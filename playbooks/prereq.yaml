@@ -1,0 +1,4 @@
+---
+  - include: prereq_repos.yaml
+  - include: prereq_base_packages.yaml
+  - include: prereq_yum_update.yaml

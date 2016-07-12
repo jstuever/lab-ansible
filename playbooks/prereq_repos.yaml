@@ -1,0 +1,19 @@
+---
+- name: prereq_repos
+  hosts: OSEv3
+  serial: 1
+  gather_facts: no
+  tasks:
+  - name: Disable repos
+    shell: subscription-manager repos --disable="*"
+    when: subscribed_check|failed
+    ignore_errors: yes
+
+  - name: Setup extra repos
+    command: "subscription-manager repos --enable={{ item }}"
+    when: subscribed_check|failed
+    with_items:
+      - rhel-7-server-rpms
+      - rhel-7-server-extras-rpms
+      - rhel-7-server-optional-rpms
+      - rhel-7-server-ose-3.2-rpms
