@@ -1,0 +1,9 @@
+---
+- name: shutdown.yaml
+  hosts: OSEv3
+  tasks:
+  - name: shutdown
+    command: shutdown -h now "Ansible triggered shutdown"
+    async: 0
+    poll: 0
+    ignore_errors: true
